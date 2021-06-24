@@ -2,26 +2,10 @@
 #include <vector>
 #include "Texture.h"
 
-/*
-	LoadAnimationFrames("player_walking_s", 60);
-	LoadAnimationFrames("player_walking_n", 60);
-	LoadAnimationFrames("player_walking_e", 60);
-	LoadAnimationFrames("player_walking_se", 60);
-	LoadAnimationFrames("player_walking_sw", 60);
-	LoadAnimationFrames("player_walking_ne", 60);
-	LoadAnimationFrames("player_walking_nw", 60);
-	LoadAnimationFrames("player_idle_s", 60);
-	LoadAnimationFrames("player_idle_n", 60);
-	LoadAnimationFrames("player_idle_e", 60);
-	LoadAnimationFrames("player_idle_se", 60);
-	LoadAnimationFrames("player_idle_sw", 60);
-	LoadAnimationFrames("player_idle_ne", 60);
-	LoadAnimationFrames("player_idle_nw", 60);
-*/
-
 enum class TextureKey
 {
-	running_s_start,
+	white,
+	running_s_start = 1,
 	running_n_start = int(running_s_start + 60),
 	running_e_start = int(running_n_start + 60),
 	running_se_start = int(running_e_start + 60),

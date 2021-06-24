@@ -4,6 +4,7 @@
 #include "ShaderProgram.h"
 #include "Texture.h"	
 #include "Camera.h"
+#include "ResourceManager.h"
 //#include "Graphics.h"
 
 struct SpriteVertex
@@ -18,15 +19,17 @@ struct SpriteVertex
 class SpriteRenderer
 {
 public:
-	SpriteRenderer(ShaderProgram* shaderProgram, Camera* camera, int batchSize);
+	SpriteRenderer(ShaderProgram* shaderProgram, int batchSize);
 	~SpriteRenderer();
-	void Begin(ShaderProgram* shaderProgram, Camera* camera);
+	void Begin(glm::mat4 projectionMatrix);
 	void End();
 	void AddSprite(glm::mat4 transform, Texture* texture, glm::vec4 tint, glm::vec2 tiling, bool flipped);
+	void AddSprite(glm::mat4 transform, glm::vec4 color);
+
 private:
 	ShaderProgram* shaderProgram;
-	Camera* camera;
 	GLuint vertexBuffer, indexBuffer, vao;
+	glm::mat4 projectionMatrix;
 	int maxIndices, maxVertices, maxTextures, indexCount, vertexCount, textureCount;
 	std::vector<SpriteVertex> vertices;
 	std::vector<Texture*> textures;

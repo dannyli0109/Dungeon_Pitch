@@ -1,9 +1,8 @@
 #include "SpriteRenderer.h"
 
-SpriteRenderer::SpriteRenderer(ShaderProgram* shaderProgram, Camera* camera, int batchSize)
+SpriteRenderer::SpriteRenderer(ShaderProgram* shaderProgram, int batchSize)
 {
 	this->shaderProgram = shaderProgram;
-	this->camera = camera;
 	maxVertices = batchSize * 4;
 	maxIndices = batchSize * 6;
 	maxTextures = 32;
@@ -80,18 +79,17 @@ SpriteRenderer::~SpriteRenderer()
 	glDeleteVertexArrays(1, &vao);
 }
 
-void SpriteRenderer::Begin(ShaderProgram* shaderProgram, Camera* camera)
+void SpriteRenderer::Begin(glm::mat4 projectionMatrix)
 {
-	this->shaderProgram = shaderProgram;
-	this->camera = camera;
+	this->projectionMatrix = projectionMatrix;
 
 	indexCount = 0;
 	vertexCount = 0;
 	textureCount = 0;
 
-	glm::mat4 proj = camera->GetProjection();
+	//glm::mat4 proj = camera->GetProjection();
 
-	shaderProgram->SetUniform("u_ProjectionMatrix", proj);
+	shaderProgram->SetUniform("u_ProjectionMatrix", projectionMatrix);
 }
 
 void SpriteRenderer::End()
@@ -120,7 +118,7 @@ void SpriteRenderer::AddSprite(glm::mat4 transform, Texture* texture, glm::vec4 
 	if (indexCount >= maxIndices)
 	{
 		End();
-		Begin(shaderProgram, camera);
+		Begin(projectionMatrix);
 	}
 
 	int textureIndex = -1;
@@ -138,7 +136,7 @@ void SpriteRenderer::AddSprite(glm::mat4 transform, Texture* texture, glm::vec4 
 		if (textureCount >= maxTextures)
 		{
 			End();
-			Begin(shaderProgram, camera);
+			Begin(projectionMatrix);
 		}
 
 		textureIndex = textureCount;
@@ -161,4 +159,10 @@ void SpriteRenderer::AddSprite(glm::mat4 transform, Texture* texture, glm::vec4 
 		vertexCount++;
 	}
 	indexCount += 6;
+}
+
+void SpriteRenderer::AddSprite(glm::mat4 transform, glm::vec4 color)
+{
+	Texture* white = ResourceManager::GetInstance()->GetTexture(int(TextureKey::white));
+	AddSprite(transform, white, color, { 1, 1 }, false);
 }

@@ -19,11 +19,14 @@ class Font
 {
 public:
 	Font(ShaderProgram* shader, std::string filePath);
+	ShaderProgram* GetShader() { return shader; }
 	~Font();
 	void Draw(std::string text, float x, float y, float scale, glm::vec3 color);
+	float MeasureWidth(std::string text, float scale);
 private:
 	std::unordered_map<char, Character> characters;
 	ShaderProgram* shader;
 	GLuint vbo, vao;
+	int size;
 };
 

@@ -15,7 +15,8 @@ Font::Font(ShaderProgram* shader, std::string filePath)
         std::cout << "ERROR::FREETYPE: Failed to load font" << std::endl;
     }
 
-    FT_Set_Pixel_Sizes(face, 0, 48);
+    size = 48;
+    FT_Set_Pixel_Sizes(face, 0, size);
 
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
@@ -62,9 +63,12 @@ Font::~Font()
 
 void Font::Draw(std::string text, float x, float y, float scale, glm::vec3 color)
 {
+    scale = scale / float(size);
+
     shader->UseShader();
     shader->SetUniform("u_TextColor", color);
-    glActiveTexture(GL_TEXTURE0);
+
+    glActiveTexture(0);
     glBindVertexArray(vao);
 
     std::string::const_iterator c;
@@ -89,8 +93,7 @@ void Font::Draw(std::string text, float x, float y, float scale, glm::vec3 color
             { xpos + w, ypos + h, 1.0f, 0.0f }
         };
 
-        //ch.texture->Bind(0);
-        glBindTexture(GL_TEXTURE_2D, ch.texture->GetId());
+        ch.texture->Bind(0);
         glBindBuffer(GL_ARRAY_BUFFER, vbo);
         glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -101,4 +104,18 @@ void Font::Draw(std::string text, float x, float y, float scale, glm::vec3 color
     }
     glBindVertexArray(0);
     Texture::Unbind();
+}
+
+float Font::MeasureWidth(std::string text, float scale)
+{
+    scale = scale / float(size);
+    std::string::const_iterator c;
+    float x = 0;
+    for (c = text.begin(); c != text.end(); c++)
+    {
+        Character ch = characters[*c];
+        float advance = 
+        x += (ch.advance >> 6) * scale;
+    }
+    return x;
 }

@@ -10,6 +10,7 @@
 #include "SpriteAnimation.h"
 #include "PlayerInputManager.h"
 #include "Font.h";
+#include "UIButton.h"
 
 class ProgramManager
 {
@@ -34,5 +35,6 @@ private:
 	float currentTime;
 	float deltaTime;
 	Font* font;
+	UIButton* button;
 };
 
