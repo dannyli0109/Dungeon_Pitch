@@ -9,6 +9,7 @@
 #include "SpriteContainer.h"
 #include "SpriteAnimation.h"
 #include "PlayerInputManager.h"
+#include "Font.h";
 
 class ProgramManager
 {
@@ -17,15 +18,21 @@ public:
 	void Run();
 	void Destroy();
 private:
-	GLFWwindow* window;
 	void RenderGUI();
+	//bool InitWindow();
+	//void InitResources();
+	void InitEntities();
+private:
+	GLFWwindow* window;
 	ResourceManager* resourceManager;
 	SpriteRenderer* spriteRenderer;
-	ShaderProgram* shader;
+	ShaderProgram* spriteShader;
+	ShaderProgram* textShader;
 	Camera* camera;
 	Entity* player;
 	float time;
 	float currentTime;
 	float deltaTime;
+	Font* font;
 };
 

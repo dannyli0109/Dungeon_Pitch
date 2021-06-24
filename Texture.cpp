@@ -38,6 +38,30 @@ Texture::Texture(std::string fileName)
 	stbi_image_free(data);
 }
 
+Texture::Texture(FT_Face face)
+{
+	glGenTextures(1, &id);
+	glBindTexture(GL_TEXTURE_2D, id);
+	glTexImage2D(
+		GL_TEXTURE_2D,
+		0,
+		GL_RED,
+		face->glyph->bitmap.width,
+		face->glyph->bitmap.rows,
+		0,
+		GL_RED,
+		GL_UNSIGNED_BYTE,
+		face->glyph->bitmap.buffer
+	);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+	loadedSuccessfully = true;
+}
+
 Texture::~Texture()
 {
 	if (loadedSuccessfully)
@@ -49,4 +73,9 @@ Texture::~Texture()
 void Texture::Bind(int index)
 {
 	glBindTextureUnit(index, id);
+}
+
+void Texture::Unbind()
+{
+	glBindTexture(GL_TEXTURE_2D, 0);
 }

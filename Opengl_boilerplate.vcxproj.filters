@@ -89,6 +89,9 @@
     <ClCompile Include="PlayerInputManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Font.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\glad\glad.h">
@@ -170,6 +173,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="PlayerInputManager.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Font.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
