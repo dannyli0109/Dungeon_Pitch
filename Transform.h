@@ -12,8 +12,9 @@ public:
     void Update(float deltaTime) override;
     void Draw(SpriteRenderer* spriteRenderer) override {}
     glm::mat4 GetTransformMatrix() { return globalTransform; }
-private:
+    glm::vec2 GetPosition() const { return globalTransform[3]; }
     glm::mat4 globalTransform;
     glm::mat4 localTransform;
+private:
 };
 

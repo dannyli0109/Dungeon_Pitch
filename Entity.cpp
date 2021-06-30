@@ -5,6 +5,10 @@ Entity::Entity(Transform* transform)
 {
 	this->transform = transform;
 	AddComponent(transform);
+	id = idCount;
+	idCount++;
+
+	//entities.push_back(this);
 }
 
 Entity::~Entity()
@@ -46,6 +50,32 @@ void Entity::Draw(SpriteRenderer* spriteRenderer)
 	}
 }
 
+void Entity::DrawGUI()
+{
+	for (Component* component : components)
+	{
+		component->DrawGUI();
+	}
+
+	for (Entity* child : children)
+	{
+		child->DrawGUI();
+	}
+}
+
+void Entity::DrawOverlay(SpriteRenderer* spriteRenderer, Font* font)
+{
+	for (Component* component : components)
+	{
+		component->DrawOverlay(spriteRenderer, font);
+	}
+
+	for (Entity* child : children)
+	{
+		child->DrawOverlay(spriteRenderer, font);
+	}
+}
+
 void Entity::AddChild(Entity* child)
 {
 	child->parent = this;
@@ -82,3 +112,7 @@ Entity* Entity::GetParent()
 {
 	return parent;
 }
+
+std::vector<Entity*> Entity::entities = std::vector<Entity*>();
+
+int Entity::idCount = 0;

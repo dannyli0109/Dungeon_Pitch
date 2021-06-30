@@ -1,0 +1,28 @@
+Id,Name,Descriptions,Rarity,Bullet,Grenade,Rocket,Laser fuel,Shrapnel
+0,Laser sight,You get a red laser sight to improve your aim,0,2,0,0,0,0
+1,Big laser,Get a skinny laser which goes to the end of the screen using right click,1,0,0,0,1,0
+2,Auto loader,You particularly reload every couple seconds,1,1,0,0,0,0
+3,Fat laser,Get a short but wide laser using right click,0,0,0,0,1,0
+4,Organic brand bullets,Gain a bullet each time you crit; get more crit the closer they are,1,1,0,0,0,0
+5,Extra strength gun powder,Crits make an explosive on hit,0,0,0,0,0,0
+6,Under barrel rocket launcher,You shoot rockets which explode on hit,0,0,0,3,0,0
+7,Phantom bullets,Dashing reloads a bullet,1,3,0,0,0,0
+8,Laser boots,You shoot a small laser with right click; When you dash shoot a laser behind you,2,0,0,0,1,0
+9,Mida's touch,Killing enemies have a chance to give gold,0,1,0,0,0,0
+10,Golden bullet,Your first bullet after a reold is fat and does damage based on your gold,1,1,0,0,0,0
+11,Bouncing blade,Shoot a blade that bounces up to 5 times; Return when toucching you or degrading,0,0,0,0,0,0
+12,Backward barrel,Whenever you fire get an extra bouncy bullet that fires behind you,1,1,0,0,0,0
+13,Triple barrel,You shoot an additional 2 bullets,2,3,0,0,0,0
+14,Layered Grenades,Grenades deael damage in a small range after each bounce,2,0,2,0,0,0
+15,More barrels,Holding right shoots 5 bullets in a circle,2,0,0,0,0,0
+16,Seeker,Pressing right will spawn drones which seek and explode enemies,0,0,0,0,0,0
+17,Defective nanobot,Enemy explode on death,3,0,0,0,0,0
+18,Holo shield,Holding right to get a shield where you point,0,0,0,0,0,0
+19,Unified mesh,Get temp head for each bonus you have,1,0,0,0,0,0
+20,Diamond armour,Get temp health for your gold; if you don't lose any real health gain a gold,2,0,0,0,0,0
+21,Poach bot,Occcasional drop a turret that targets,1,0,0,0,0,0
+22,Robot blood,When you take damage get temp health,3,0,0,0,0,0
+23,Rocket fuel,Your explosives are much larger,3,0,0,1,0,0
+24,Chrono accelerator,When you holding right click you have no between bullet time; Reload time is shorter,3,0,0,0,0,0
+25,Shrapnel surprise,You shoot 5 sharpnel in the small cone at once,3,0,0,0,0,30
+26,Bouncing bot,When you reload create a drone which infinitely bounces,2,0,0,0,0,0

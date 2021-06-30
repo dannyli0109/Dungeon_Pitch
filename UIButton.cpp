@@ -29,7 +29,7 @@ void UIButton::Draw(SpriteRenderer* spriteRenderer, glm::vec2 position, glm::vec
     glm::mat4 buttonTransform = glm::mat4(1.0f);
     buttonTransform = glm::translate(buttonTransform, { position.x + size.x / 2.0f, position.y + size.y / 2.0f, 0 });
     buttonTransform = glm::scale(buttonTransform, glm::vec3(size, 1));
-    spriteRenderer->AddSprite(buttonTransform, { 1, 0, 0, 1 });
+    spriteRenderer->AddSprite(buttonTransform, glm::vec4(backgroundColor, 1));
     spriteRenderer->End();
 
     font->GetShader()->SetUniform("u_ProjectionMatrix", projection);

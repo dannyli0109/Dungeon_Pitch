@@ -3,9 +3,9 @@
 Transform::Transform(glm::vec3 position, float rotation, glm::vec2 scale)
 {
 	localTransform = glm::mat4(1.0f);
-	Scale(scale);
-	Rotate(rotation);
 	Translate(position);
+	Rotate(rotation);
+	Scale(scale);
 }
 
 void Transform::Translate(const glm::vec3& direction)

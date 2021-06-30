@@ -1,6 +1,8 @@
 #pragma once
 #include <vector>
 #include "Component.h"
+#include "GUI.h"
+#include "Font.h"
 //#include "Transform.h"
 class Transform;
 class Entity
@@ -10,6 +12,8 @@ public:
 	virtual ~Entity();
 	virtual void Update(float deltaTime);
 	virtual void Draw(SpriteRenderer* spriteRenderer);
+	virtual void DrawGUI();
+	virtual void DrawOverlay(SpriteRenderer* spriteRenderer, Font* font);
 	void AddChild(Entity* child);
 	void RemoveChild(Entity* child);
 	void AddComponent(Component* component);
@@ -29,7 +33,11 @@ public:
 	}
 public:
 	Transform* transform = nullptr;
+	static std::vector<Entity*> entities;
+	bool removing = false;
+	int id;
 private:
+	static int idCount;
 	std::vector<Entity*> children;
 	std::vector<Component*> components;
 	Entity* parent = nullptr;

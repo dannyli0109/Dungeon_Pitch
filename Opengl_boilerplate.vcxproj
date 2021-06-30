@@ -146,10 +146,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AABB.cpp" />
+    <ClCompile Include="Ammo.cpp" />
+    <ClCompile Include="AmmoFactory.cpp" />
+    <ClCompile Include="Augment.cpp" />
+    <ClCompile Include="Box.cpp" />
+    <ClCompile Include="BoxRotated.cpp" />
+    <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="BulletManager.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Agent.cpp" />
+    <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="CollisionFunctions.cpp" />
     <ClCompile Include="Component.cpp" />
+    <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Font.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="lib\glad\glad.c" />
     <ClCompile Include="lib\imgui\imgui.cpp" />
     <ClCompile Include="lib\imgui\imgui_demo.cpp" />
@@ -158,9 +171,15 @@
     <ClCompile Include="lib\imgui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="lib\imgui\imgui_tables.cpp" />
     <ClCompile Include="lib\imgui\imgui_widgets.cpp" />
-    <ClCompile Include="PlayerInputManager.cpp" />
+    <ClCompile Include="LineRenderer.cpp" />
+    <ClCompile Include="Map.cpp" />
+    <ClCompile Include="PhysicalObject.cpp" />
+    <ClCompile Include="PhysicsScene.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="ProgramManager.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="RigidBody.cpp" />
+    <ClCompile Include="Rocket.cpp" />
     <ClCompile Include="ShaderProgram.cpp" />
     <ClCompile Include="SpriteAnimation.cpp" />
     <ClCompile Include="SpriteContainer.cpp" />
@@ -172,10 +191,25 @@
     <ClCompile Include="Utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AABB.h" />
+    <ClInclude Include="Ammo.h" />
+    <ClInclude Include="AmmoFactory.h" />
+    <ClInclude Include="AmmoStats.h" />
+    <ClInclude Include="Augment.h" />
+    <ClInclude Include="Box.h" />
+    <ClInclude Include="BoxRotated.h" />
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="BulletManager.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Agent.h" />
+    <ClInclude Include="Circle.h" />
+    <ClInclude Include="CollisionData.h" />
+    <ClInclude Include="CollisionFunctions.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="Enemy.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Font.h" />
+    <ClInclude Include="InputManager.h" />
     <ClInclude Include="lib\glad\glad.h" />
     <ClInclude Include="lib\glad\khrplatform.h" />
     <ClInclude Include="lib\imgui\imconfig.h" />
@@ -187,10 +221,17 @@
     <ClInclude Include="lib\imgui\imstb_textedit.h" />
     <ClInclude Include="lib\imgui\imstb_truetype.h" />
     <ClInclude Include="lib\stb_image\stb_image.h" />
-    <ClInclude Include="PlayerInputManager.h" />
+    <ClInclude Include="LineRenderer.h" />
+    <ClInclude Include="Map.h" />
+    <ClInclude Include="PhysicsScene.h" />
+    <ClInclude Include="PhysicalObject.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="ProgramManager.h" />
     <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="RigidBody.h" />
+    <ClInclude Include="Rocket.h" />
     <ClInclude Include="ShaderProgram.h" />
+    <ClInclude Include="Shape.h" />
     <ClInclude Include="SpriteAnimation.h" />
     <ClInclude Include="SpriteContainer.h" />
     <ClInclude Include="SpriteRenderer.h" />
